@@ -1,13 +1,17 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-export function dbConnection(){
-    const params ={
-        useNewUrlParser : true,
-        useUnfiedTopology : true,
-    }
-    try {
-        mongoose.connect("mongodb://127.0.0.1:27017/stu_mentor")
-    } catch (error) {
-        
-    }
+dotenv.config();
+
+export function dbConnection() {
+  const params = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  };
+  try {
+    mongoose.connect(process.env.DB_URL, params);
+    console.log("Database connected sucessfully");
+  } catch (error) {
+    console.log("Error connection in DB");
+  }
 }
