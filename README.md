@@ -20,3 +20,41 @@ Select One Student and Assign one Mentor
 
 Base URL https://stu-mentor.onrender.com
 
+Mentor Api's
+GET          /mentor 
+POST         /mentor 
+GET by ID    /mentor/get-mentor/:ID 
+
+
+Student Api's
+GET           /student 
+POST          /student 
+
+
+To get list of students whose mentors weren't assigned
+GET          /student/no-mentors
+
+
+To assign or change Mentor for student
+
+PATCH        /student/assign-mentor/:student-id
+
+
+To assign mentors for multiple Students
+
+PATCH        /student/assign-mentor-students
+
+
+To Assign or Change Mentor for particular student
+Pass Mentor ID in request Body
+
+PATCH        /student/assign-mentor/:student-id 
+
+To Assign mentor for multiple students
+Pass Mentor ID and Student ID as list in body
+
+PATCH        /student/assign-mentor-students 
+
+To get all students of particular Mentor
+
+GET          /student/mentor-students/:mentor-id 
